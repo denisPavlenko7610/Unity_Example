@@ -1955,6 +1955,10 @@ PrefabInstance:
       propertyPath: _coneDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7644379982836891127, guid: 555a3ef0d240b3149bb120a1bfbaaefa, type: 3}
+      propertyPath: _targetObject
+      value: 
+      objectReference: {fileID: 1516896373}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2860,6 +2864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 901162127}
+  visibilityThreshold: 0.5
 --- !u!1001 &1555615538
 PrefabInstance:
   m_ObjectHideFlags: 0
