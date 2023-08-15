@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DefaultNamespace;
+using System;
 
-public class PlayerRotation : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] Transform targetObject;
+    [SerializeField] float visibilityThreshold = 0.5f;
 
     void Start()
     {
-        RotateToObjectAsync().Forget();
+        //RotateToObjectAsync().Forget();
+        IsLookAt().Forget();
     }
 
     async UniTask RotateToObjectAsync(float duration = 2f)
@@ -44,5 +47,22 @@ public class PlayerRotation : MonoBehaviour
         
         print("yAngle: " + yAngle * Mathf.Rad2Deg);
         return yAngle * Mathf.Rad2Deg;
+    }
+    
+    async UniTask IsLookAt()
+    {
+        while (true)
+        {
+            Vector3 toTarget = targetObject.position - transform.position;
+
+            Vector3 forwardDirection = transform.forward.normalized;
+            Vector3 toTargetNormalized = toTarget.normalized;
+
+            float dotProduct = MathFunc.Dot(forwardDirection, toTargetNormalized);
+            print("Dot product: " + dotProduct);
+            print(dotProduct >= visibilityThreshold);
+
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
+        }
     }
 }
