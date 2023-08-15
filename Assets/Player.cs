@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Cysharp.Threading.Tasks;
-using DefaultNamespace;
 using System;
 
 public class Player : MonoBehaviour
@@ -48,7 +47,7 @@ public class Player : MonoBehaviour
         print("yAngle: " + yAngle * Mathf.Rad2Deg);
         return yAngle * Mathf.Rad2Deg;
     }
-    
+
     async UniTask IsLookAt()
     {
         while (true)
@@ -59,8 +58,7 @@ public class Player : MonoBehaviour
             Vector3 toTargetNormalized = toTarget.normalized;
 
             float dotProduct = MathFunc.Dot(forwardDirection, toTargetNormalized);
-            print("Dot product: " + dotProduct);
-            print(dotProduct >= visibilityThreshold);
+            print("Dot product: " + dotProduct + (dotProduct >= MathF.Abs(visibilityThreshold) ? " Visible" : " Invisible"));
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
