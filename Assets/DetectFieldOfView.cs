@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DetectFieldOfView : MonoBehaviour
 {
-    [SerializeField] GameObject _gameObject;
+    [SerializeField] GameObject _targetObject;
     
     [SerializeField] float _coneDistance = 1f;
     [SerializeField] float _coneAngle = 45f;
@@ -14,7 +14,7 @@ public class DetectFieldOfView : MonoBehaviour
     }
     bool IsInFieldOfView()
     {
-        Vector3 directioin = _gameObject.transform.position - transform.position;
+        Vector3 directioin = _targetObject.transform.position - transform.position;
         Vector3 forwardA = transform.forward.normalized;
         float dotProduct = MathFunc.Dot(directioin.normalized, forwardA);
         float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;
@@ -46,13 +46,13 @@ public class DetectFieldOfView : MonoBehaviour
 
         float thickness = 2f;
         
-        Gizmos.DrawLine(vertexA, vertexB);
-        Gizmos.DrawLine(vertexB, vertexC);
-        Gizmos.DrawLine(vertexC, vertexA);
+        // Gizmos.DrawLine(vertexA, vertexB);
+        // Gizmos.DrawLine(vertexB, vertexC);
+        // Gizmos.DrawLine(vertexC, vertexA);
         
-        // DrawThickLine(vertexA, vertexB, thickness);
-        // DrawThickLine(vertexB, vertexC, thickness);
-        // DrawThickLine(vertexC, vertexA, thickness);
+        DrawThickLine(vertexA, vertexB, thickness);
+        DrawThickLine(vertexB, vertexC, thickness);
+        DrawThickLine(vertexC, vertexA, thickness);
     }
     
     void DrawThickLine(Vector3 start, Vector3 end, float thickness)

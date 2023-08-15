@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        //RotateToObjectAsync().Forget();
-        IsLookAt().Forget();
+        RotateToObjectAsync().Forget();
+        //IsLookAt().Forget();
     }
 
     async UniTask RotateToObjectAsync(float duration = 2f)
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
             float dotProduct = MathFunc.Dot(forwardDirection, toTargetNormalized);
             print("Dot product: " + dotProduct + (dotProduct >= MathF.Abs(visibilityThreshold) ? " Visible" : " Invisible"));
 
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
         }
     }
 }
