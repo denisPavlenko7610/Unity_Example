@@ -21,7 +21,7 @@ public class DetectFieldOfView : MonoBehaviour
         float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;
         float distance = directioin.magnitude;
 
-        print("Distance: " + distance);
+        //print("Distance: " + distance);
         if (distance <= _coneDistance && angle <= _coneAngle / 2f)
         {
             return true;
@@ -47,9 +47,13 @@ public class DetectFieldOfView : MonoBehaviour
 
         float thickness = 2f;
         
-        DrawThickLine(vertexA, vertexB, thickness);
-        DrawThickLine(vertexB, vertexC, thickness);
-        DrawThickLine(vertexC, vertexA, thickness);
+        Gizmos.DrawLine(vertexA, vertexB);
+        Gizmos.DrawLine(vertexB, vertexC);
+        Gizmos.DrawLine(vertexC, vertexA);
+        
+        // DrawThickLine(vertexA, vertexB, thickness);
+        // DrawThickLine(vertexB, vertexC, thickness);
+        // DrawThickLine(vertexC, vertexA, thickness);
     }
     
     void DrawThickLine(Vector3 start, Vector3 end, float thickness)

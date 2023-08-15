@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using DefaultNamespace;
 
-public class RotationController : MonoBehaviour
+public class PlayerRotation : MonoBehaviour
 {
     [SerializeField] Transform targetObject;
 
