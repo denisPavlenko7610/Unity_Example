@@ -2,23 +2,23 @@
 
 namespace Command
 {
-    public class MoveRightCommand : IMoveCommand
+    public class ForwardCommand : ICommand
     {
         Player _player;
 
-        public MoveRightCommand(Player player)
+        public ForwardCommand(Player player)
         {
             _player = player;
         }
         
         public void Execute()
         {
-            _player.MoveRight();
+            _player.MoveForward();
         }
 
         public void Undo()
         {
-            _player.MoveLeft();
+            _player.MoveBack();
         }
     }
 }

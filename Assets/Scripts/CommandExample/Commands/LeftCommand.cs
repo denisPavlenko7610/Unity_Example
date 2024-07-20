@@ -2,11 +2,11 @@
 
 namespace Command
 {
-    public class MoveLeftCommand : IMoveCommand
+    public class LeftCommand : ICommand
     {
         Player _player;
 
-        public MoveLeftCommand(Player player)
+        public LeftCommand(Player player)
         {
             _player = player;
         }

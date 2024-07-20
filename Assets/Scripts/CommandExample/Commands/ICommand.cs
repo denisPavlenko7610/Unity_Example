@@ -1,6 +1,6 @@
 ﻿namespace Command
 {
-    public interface IMoveCommand
+    public interface ICommand
     {
         void Execute();
         void Undo();

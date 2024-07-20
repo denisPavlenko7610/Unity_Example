@@ -2,11 +2,11 @@
 
 namespace Command
 {
-    public class MoveBackCommand : IMoveCommand
+    public class BackCommand : ICommand
     {
         Player _player;
 
-        public MoveBackCommand(Player player)
+        public BackCommand(Player player)
         {
             _player = player;
         }

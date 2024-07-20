@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Command
 {
-    public class PlayerHandler : MonoBehaviour
+    public class InputHandler : MonoBehaviour
     {
         [SerializeField] Button _rightButton;
         [SerializeField] Button _LeftButton;
@@ -15,10 +15,10 @@ namespace Command
         
         [SerializeField] Player _player;
 
-        private IMoveCommand _moveForwardCommand;
-        private IMoveCommand _moveBackCommand;
-        private IMoveCommand _moveLeftCommand;
-        private IMoveCommand _moveRightCommand;
+        private ICommand _forwardCommand;
+        private ICommand _backCommand;
+        private ICommand _leftCommand;
+        private ICommand _rightCommand;
 
         void Awake()
         {
@@ -33,10 +33,10 @@ namespace Command
 
         void Start()
         {
-            _moveForwardCommand = new MoveForwardCommand(_player);
-            _moveBackCommand = new MoveBackCommand(_player);
-            _moveLeftCommand = new MoveLeftCommand(_player);
-            _moveRightCommand = new MoveRightCommand(_player);
+            _forwardCommand = new ForwardCommand(_player);
+            _backCommand = new BackCommand(_player);
+            _leftCommand = new LeftCommand(_player);
+            _rightCommand = new RightCommand(_player);
         }
 
         void OnDestroy()
@@ -52,26 +52,26 @@ namespace Command
 
         void OnMoveForwardButtonPressed()
         {
-            _moveForwardCommand.Execute();
-            _player.addCommand(_moveForwardCommand);
+            _forwardCommand.Execute();
+            _player.addCommand(_forwardCommand);
         }
         
         void OnMoveBackButtonPressed()
         {
-            _moveBackCommand.Execute();
-            _player.addCommand(_moveBackCommand);
+            _backCommand.Execute();
+            _player.addCommand(_backCommand);
         }
         
         void OnMoveLeftButtonPressed()
         {
-            _moveLeftCommand.Execute();
-            _player.addCommand(_moveLeftCommand);
+            _leftCommand.Execute();
+            _player.addCommand(_leftCommand);
         }
         
         void OnMoveRightButtonPressed()
         {
-            _moveRightCommand.Execute();
-            _player.addCommand(_moveRightCommand);
+            _rightCommand.Execute();
+            _player.addCommand(_rightCommand);
         }
     }
 }

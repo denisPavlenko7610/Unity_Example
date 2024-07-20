@@ -8,13 +8,13 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Transform _targetObject;
     [SerializeField] float _visibilityThreshold = 0.5f;
-    [FormerlySerializedAs("_playerInput")] [SerializeField] PlayerHandler playerHandler;
+    [FormerlySerializedAs("playerHandler")] [FormerlySerializedAs("_playerInput")] [SerializeField] InputHandler inputHandler;
     
-    private readonly Stack<IMoveCommand> _commandStack = new();
+    private readonly Stack<ICommand> _commandStack = new();
 
-    public void addCommand(IMoveCommand command) => _commandStack.Push(command);
+    public void addCommand(ICommand command) => _commandStack.Push(command);
 
-    void Move(IMoveCommand command)
+    void Move(ICommand command)
     {
         command.Execute();
         _commandStack.Push(command);
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         if (!_commandStack.Any())
             return;
         
-        IMoveCommand command = _commandStack.Pop();
+        ICommand command = _commandStack.Pop();
         command.Undo();
     }
 }
