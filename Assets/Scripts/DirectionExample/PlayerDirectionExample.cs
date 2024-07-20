@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
 
-public class Player : MonoBehaviour
+public class PlayerDirectionExample : MonoBehaviour
 {
     [SerializeField] Transform targetObject;
     [SerializeField] float visibilityThreshold = 0.5f;
