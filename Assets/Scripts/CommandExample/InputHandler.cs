@@ -53,25 +53,25 @@ namespace Command
         void OnMoveForwardButtonPressed()
         {
             _forwardCommand.Execute();
-            _player.addCommand(_forwardCommand);
+            _player.AddCommand(_forwardCommand);
         }
         
         void OnMoveBackButtonPressed()
         {
             _backCommand.Execute();
-            _player.addCommand(_backCommand);
+            _player.AddCommand(_backCommand);
         }
         
         void OnMoveLeftButtonPressed()
         {
             _leftCommand.Execute();
-            _player.addCommand(_leftCommand);
+            _player.AddCommand(_leftCommand);
         }
         
         void OnMoveRightButtonPressed()
         {
             _rightCommand.Execute();
-            _player.addCommand(_rightCommand);
+            _player.AddCommand(_rightCommand);
         }
     }
 }

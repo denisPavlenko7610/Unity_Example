@@ -6184,9 +6184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd66f09ba5e34a64385556e34367d294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetObject: {fileID: 0}
   _visibilityThreshold: 0.5
-  playerHandler: {fileID: 1899320521}
+  _inputHandler: {fileID: 1899320521}
 --- !u!95 &1899320520
 Animator:
   serializedVersion: 5
@@ -6771,7 +6770,7 @@ GameObject:
   - component: {fileID: 2049414294}
   - component: {fileID: 2049414293}
   m_Layer: 8
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
