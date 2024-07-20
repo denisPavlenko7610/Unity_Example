@@ -10,16 +10,15 @@ namespace Command
         {
             _player = player;
         }
-
-
+        
         public void Execute()
         {
-            _player.transform.position += Vector3.forward;
+            _player.MoveForward();
         }
 
         public void Undo()
         {
-            _player.transform.position -= Vector3.forward;
+            _player.MoveBack();
         }
     }
 }

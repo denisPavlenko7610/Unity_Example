@@ -2,34 +2,33 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] Transform _targetObject;
     [SerializeField] float _visibilityThreshold = 0.5f;
-    [SerializeField] PlayerInput _playerInput;
+    [FormerlySerializedAs("_playerInput")] [SerializeField] PlayerHandler playerHandler;
     
     private readonly Stack<IMoveCommand> _commandStack = new();
 
-    void Start()
-    {
-        _playerInput.OnButtonPressed += Move;
-        _playerInput.OnGoButtonPressed += Go;
-        _playerInput.OnUndoButtonPressed += Undo;
-    }
+    public void addCommand(IMoveCommand command) => _commandStack.Push(command);
 
-    void OnDestroy()
-    {
-        _playerInput.OnButtonPressed -= Move;
-    }
-    
     void Move(IMoveCommand command)
     {
         command.Execute();
         _commandStack.Push(command);
     }
+    
+    public void MoveForward() => transform.Translate(Vector3.forward);
 
-    void Go()
+    public void MoveBack() => transform.Translate(Vector3.back);
+
+    public void MoveLeft() => transform.Translate(Vector3.left);
+
+    public void MoveRight() => transform.Translate(Vector3.right);
+
+    public void Go()
     {
         foreach (var command in _commandStack)
         {
@@ -37,7 +36,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Undo()
+    public void Undo()
     {
         if (!_commandStack.Any())
             return;

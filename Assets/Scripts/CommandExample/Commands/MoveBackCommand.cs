@@ -13,12 +13,12 @@ namespace Command
 
         public void Execute()
         {
-            _player.transform.position += Vector3.back;
+            _player.MoveBack();
         }
 
         public void Undo()
         {
-            _player.transform.position -= Vector3.back;
+            _player.MoveForward();
         }
     }
 }
