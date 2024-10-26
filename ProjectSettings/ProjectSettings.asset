@@ -141,7 +141,8 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -2354652773229895175, guid: 85b5ec9fcec8bb84da88197c4edaba17, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -889,7 +890,7 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Build: 0
+    Build: 1
     Game Performance: 0
     Legacy Analytics: 0
     Purchasing: 0
@@ -916,10 +917,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: f520bb94-45a7-447f-afd6-5ba6a2573010
+  cloudProjectId: 2c002ee8-87a5-4258-8b61-194b83231e8b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Test (1)
+  projectName: Unity_example
   organizationId: denispavlenko7610new
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
